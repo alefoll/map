@@ -1,0 +1,7 @@
+{
+  "name": "map",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alexandre Le Foll<alexandre@le-foll.fr>",
+  "license": "MIT"
+}
