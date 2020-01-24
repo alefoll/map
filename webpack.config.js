@@ -1,43 +1,46 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const path = require("path");
 
 module.exports = {
-    entry: {
-        app: "./src/app.js"
-    },
+    entry: "./src/index.tsx",
     output: {
-        path     : path.resolve(__dirname, "./build"),
-        filename : "js/[name].min.js"
+        filename : "app.min.js",
+        path     : path.resolve(__dirname, "build")
     },
     module: {
         rules: [{
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: [{
-                loader: "babel-loader",
-                options: {
-                    presets: [
-                        "@babel/preset-env",
-                        "@babel/preset-react"
-                    ]
-                }
-            }]
+            test    : /\.tsx?$/,
+            use     : "ts-loader",
+            exclude : /node_modules/
         }, {
             test: /\.html$/,
             use: [{
-                loader: "file-loader",
-                options: {
-                    name: "[name].[ext]",
+                loader  : "file-loader",
+                options : {
+                    name: "[name].[ext]"
                 }
             }]
         }, {
-            test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-            use: [{
-                loader: "file-loader",
-                options: {
-                    name: "assets/[name].[ext]",
-                }
-            }]
+            test : /\.css$/,
+            use  : [MiniCssExtractPlugin.loader, "css-loader"]
         }]
     },
+    resolve: {
+        extensions: [".tsx", ".ts", ".js"]
+    },
+    devServer: {
+        host             : "0.0.0.0",
+        port             : 3000,
+        disableHostCheck : true,
+        staticOptions    : {
+            extensions: ["html"]
+        }
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "style.css"
+        })
+    ],
     mode: "development"
-}
+};
