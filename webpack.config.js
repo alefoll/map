@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const path = require("path");
 
@@ -22,8 +22,18 @@ module.exports = {
                 }
             }]
         }, {
-            test : /\.css$/,
-            use  : [MiniCssExtractPlugin.loader, "css-loader"]
+            test    : /\.css$/,
+            use     : [MiniCssExtractPlugin.loader, "css-loader"],
+            exclude : /node_modules/
+        }, {
+            test    : /\.css$/,
+            include : /node_modules/,
+            use     : [{
+                loader  : "file-loader",
+                options : {
+                    name: "[name].[ext]"
+                }
+            }]
         }]
     },
     resolve: {

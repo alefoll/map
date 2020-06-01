@@ -10,21 +10,23 @@
     "dev": "webpack-dev-server --progress --profile --color"
   },
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "mapbox-gl": "^1.10.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@types/react": "^16.9.19",
-    "@types/react-dom": "^16.9.5",
-    "@yarnpkg/pnpify": "^2.0.0-rc.16",
-    "css-loader": "^3.4.2",
+    "@types/mapbox-gl": "^1.10.2",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@yarnpkg/pnpify": "^2.0.0-rc.22",
+    "css-loader": "^3.5.3",
     "del": "^5.1.0",
-    "file-loader": "^5.0.2",
+    "file-loader": "^6.0.0",
     "mini-css-extract-plugin": "^0.9.0",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.5",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.3",
     "webpack": "next",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   }
 }

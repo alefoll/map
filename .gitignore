@@ -1,6 +1,4 @@
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
+.yarn/
 .pnp.*
 .vscode
 node_modules
